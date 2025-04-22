@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CentAd Branding - Marketing & Advertising Agency</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #FDCF04;
+            --dark: #211F46;
+            --light: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .navbar-brand span {
+            color: var(--primary);
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        /* Hero/Slider Section */
+        .hero-slider {
+            padding: 0;
+        }
+
+        .carousel-item {
+            height: 800px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-caption {
+            bottom: 180px;
+            padding: 30px;
+            background-color: rgba(33, 31, 70, 0.7);
+            border-radius: 5px;
+        }
+        
+        .carousel-caption h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .carousel-caption p {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--dark);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark);
+            border-color: var(--dark);
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        
+        /* Services Section */
+        .service-box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            min-height: 300px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 5px;
+        }
+        
+        .portfolio-item img {
+            transition: transform 0.5s;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(33, 31, 70, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h4 {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        /* Process Section */
+        .process {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+        
+        .process-item {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .process-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .process-icon {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--dark);
+            font-size: 30px;
+            line-height: 80px;
+            margin: 0 auto 30px;
+        }
+        
+        .process-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--dark);
+            color: var(--white);
+            font-size: 14px;
+            line-height: 30px;
+            font-weight: 600;
+        }
+        
+        .process-item h4 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            padding: 60px 0;
+            margin-top: 0;
+        }
+        
+        .stats-item {
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .stats-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stats-icon {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .stats-item h3 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .stats-item p {
+            font-size: 16px;
+            color: var(--dark);
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+        
+        /* Clients Section */
+        .client-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .client-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .client-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        /* Testimonials */
+        .testimonial-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: var(--white);
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .client-info h5 {
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .client-info p {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .client-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-indicators {
+            position: relative;
+            margin-top: 30px;
+            margin-bottom: 0;
+            justify-content: center;
+        }
+        
+        .testimonial-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            border: none;
+        }
+        
+        .testimonial-indicators button.active {
+            background-color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: var(--dark);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-dark {
+            background-color: var(--dark);
+            border-color: var(--dark);
+            color: var(--white);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-dark:hover {
+            background-color: var(--white);
+            border-color: var(--white);
+            color: var(--dark);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .contact-form .form-control {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            padding: 80px 0 0;
+            color: var(--white);
+        }
+        
+        .footer-widget {
+            margin-bottom: 40px;
+        }
+        
+        .footer-widget h3 {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        
+        .footer-widget p, .footer-widget li {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-widget ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-widget ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-widget ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        .working-hours {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .working-hours li {
+            margin-bottom: 10px;
+        }
+        
+        .payment-methods {
+            margin-top: 15px;
+        }
+        
+        .payment-methods i {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s;
+        }
+        
+        .payment-methods i:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+        
+        .copyright p {
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .copyright a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .copyright a:hover {
+            color: var(--primary);
+        }
+        
+        /* Scroll to top */
+        .scroll-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--dark);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 5px;
+            display: none;
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .scroll-to-top:hover {
+            background-color: var(--dark);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CentAd<span>Branding</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#clients">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero-slider">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" style="background-image: url('images/branding.jpg');">
+                    <div class="carousel-caption">
+                        <h2>Elevate Your Brand Presence</h2>
+                        <p>Strategic marketing solutions to help your business stand out in today's competitive market.</p>
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('images/advertising.jpg');">
+                    <div class="carousel-caption">
+                        <h2>Creative Advertising Campaigns</h2>
+                        <p>Turn your ideas into captivating stories that resonate with your target audience.</p>
+                        <a href="#services" class="btn btn-primary">Our Services</a>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('images/campaign.jpg');">
+                    <div class="carousel-caption">
+                        <h2>Digital Marketing Excellence</h2>
+                        <p>Full-service digital marketing agency helping businesses grow their online presence.</p>
+                        <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Do Best</h2>
+                <p>We offer a comprehensive range of marketing and advertising services to help your business grow.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4>Digital Marketing</h4>
+                        <p>We create data-driven digital marketing strategies to increase your online visibility and drive targeted traffic to your website.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Our team designs and develops responsive, user-friendly websites that capture your brand essence and convert visitors into customers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Branding & Design</h4>
+                        <p>We help establish a strong brand identity through creative design solutions that resonate with your target audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h4>Social Media Marketing</h4>
+                        <p>We build engaged communities around your brand with tailored social media strategies and compelling content.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h4>PPC Advertising</h4>
+                        <p>Our paid advertising campaigns are optimized for maximum ROI, driving qualified leads to your business.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>SEO Optimization</h4>
+                        <p>We improve your search engine rankings with proven SEO techniques that increase organic visibility and traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery Section -->
+<!-- Portfolio Gallery Section -->
+<section id="portfolio" class="portfolio bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Portfolio</h2>
+            <p>Take a look at some of our recent work that delivered outstanding results for our clients.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 1">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>E-commerce Campaign</h4>
+                            <p>Digital Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 2">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>Brand Identity</h4>
+                            <p>Branding & Design</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 3">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>Social Media Strategy</h4>
+                            <p>Social Media Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 4">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>Corporate Website</h4>
+                            <p>Web Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 5">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>PPC Campaign</h4>
+                            <p>Digital Advertising</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item">
+                    <img src="/api/placeholder/400/300" alt="Portfolio Item 6">
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h4>SEO Optimization</h4>
+                            <p>Search Engine Optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Work Process</h2>
+                <p>See how we transform your ideas into powerful marketing solutions</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-item">
+                        <div class="process-icon">
+                            <i class="fas fa-lightbulb"></i>
+                            <span class="process-number">01</span>
+                        </div>
+                        <h4>Research & Discovery</h4>
+                        <p>We begin by understanding your business, objectives, target audience, and competition.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-item">
+                        <div class="process-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <span class="process-number">02</span>
+                        </div>
+                        <h4>Strategy & Planning</h4>
+                        <p>We create a comprehensive marketing strategy aligned with your business goals.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-item">
+                        <div class="process-icon">
+                            <i class="fas fa-paint-brush"></i>
+                            <span class="process-number">03</span>
+                        </div>
+                        <h4>Creative Execution</h4>
+                        <p>Our creative team brings the strategy to life with compelling content and designs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-item">
+                        <div class="process-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="process-number">04</span>
+                        </div>
+                        <h4>Analysis & Optimization</h4>
+                        <p>We continually monitor performance and optimize for maximum results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="counter">250</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="counter">520</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="counter">35</h3>
+                        <p>Awards Won</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-item">
+                        <div class="stats-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="counter">15</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Valued Customers</h2>
+                <p>We're proud to work with these amazing brands who trust us to deliver results.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 1">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 2">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 3">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 4">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 5">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 6">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 7">
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="client-logo">
+                        <img src="/api/placeholder/200/100" alt="Client 8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Boost Your Marketing Strategy?</h2>
+            <p>Let's work together to create tailored marketing solutions that drive real results for your business. Get in touch with our team today to schedule a consultation.</p>
+            <a href="#contact" class="btn btn-dark">Contact Us Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? We'd love to hear from you.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>The Mint Hub Offices, 10th Floor- Western Heights<br>Nairobi Kenya</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>info@centadbranding.co.ke<br>marketing@centadbranding.co.ke</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>Phone</h4>
+                        <p>+254 796 880 171<br>+254 111 222 832</p>
+                    </div>
+                </div>
+                <div class="col-md-8 mx-auto">
+                    <form class="contact-form" id="whatsappForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control mt-3" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="privacyCheck" required>
+                            <label class="form-check-label" for="privacyCheck">
+                                I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3"><i class="fab fa-whatsapp me-2"></i> Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Privacy Policy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>At CentAd Branding, we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our website or services.</p>
+                    <h6>Information We Collect</h6>
+                    <p>We collect information you provide directly to us, including your name, email address, phone number, and any other information you choose to provide.</p>
+                    <h6>How We Use Your Information</h6>
+                    <p>We use your information to:</p>
+                    <ul>
+                        <li>Respond to your inquiries</li>
+                        <li>Provide the services you request</li>
+                        <li>Send you marketing communications (with your consent)</li>
+                        <li>Improve our website and services</li>
+                    </ul>
+                    <h6>Data Protection</h6>
+                    <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+                    <h6>Third-Party Services</h6>
+                    <p>We may use third-party services (such as WhatsApp) to communicate with you. Please note that these services have their own privacy policies.</p>
+                    <h6>Your Rights</h6>
+                    <p>You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us at privacy@centadbranding.co.ke.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>About Us</h3>
+                        <p>CentAd Branding is a full-service marketing and advertising agency dedicated to helping businesses achieve their marketing goals through creative and strategic solutions.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=100090936917290"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/centadbranding/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@centad.branding"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=254796880171"><i class="fab fa-whatsapp"></i></a>
+                            <a href="tel:+254796880171"><i class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Our Services</h3>
+                        <ul>
+                            <li><a href="#services">Digital Marketing</a></li>
+                            <li><a href="#services">Web Development</a></li>
+                            <li><a href="#services">Branding & Design</a></li>
+                            <li><a href="#services">Social Media Marketing</a></li>
+                            <li><a href="#services">PPC Advertising</a></li>
+                            <li><a href="#services">SEO Optimization</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#clients">Our Clients</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-widget">
+                        <h3>Working Hours</h3>
+                        <ul class="working-hours">
+                            <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                            <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
+                            <li><strong>Sunday:</strong> Closed</li>
+                        </ul>
+                        <p>Need urgent assistance? Contact our 24/7 support team:</p>
+                        
+                         <p><a href="tel:+254796880171"><i class="fas fa-phone"></i>+254 796 880 171</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Working Hours Section -->
+            <!-- <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="footer-widget">
+                        <h3>Working Hours</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="working-hours">
+                                    <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+                                    <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
+                                    <li><strong>Sunday:</strong> Closed</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Need urgent assistance? Contact our 24/7 support team:</p>
+                                <p><i class="fas fa-phone-alt me-2"></i> +254 796 880 171</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Payment Methods -->
+            <!-- <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="footer-widget">
+                        <h3>Payment Methods</h3>
+                        <div class="payment-methods">
+                            <i class="fab fa-cc-visa fa-2x me-2"></i>
+                            <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+                            <i class="fab fa-cc-amex fa-2x me-2"></i>
+                            <i class="fab fa-cc-paypal fa-2x me-2"></i>
+                            <i class="fab fa-cc-discover fa-2x me-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Copyright Section -->
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <span id="current-year"></span> CentAd Branding. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Sitemap</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // WhatsApp Form Submit
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Format the message for WhatsApp
+            const whatsappMessage = `*New Contact Form Submission*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+            
+            // Replace with your actual WhatsApp business number
+            const whatsappNumber = '15551234567';
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Reset the form
+            this.reset();
+            
+            // Show success message
+            const successAlert = document.createElement('div');
+            successAlert.className = 'alert alert-success mt-3';
+            successAlert.innerHTML = '<i class="fas fa-check-circle me-2"></i> Your message has been sent to our WhatsApp. We will contact you shortly!';
+            this.appendChild(successAlert);
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successAlert.remove();
+            }, 5000);
+        });
+        
+        // Newsletter Form Submit
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            // Here you would normally send this to your newsletter service
+            console.log('Newsletter subscription for:', email);
+            
+            // Reset the form
+            this.reset();
+            
+            // Show success message
+            const successAlert = document.createElement('div');
+            successAlert.className = 'alert alert-success mt-3';
+            successAlert.innerHTML = '<i class="fas fa-check-circle me-2"></i> Thank you for subscribing to our newsletter!';
+            this.appendChild(successAlert);
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successAlert.remove();
+            }, 5000);
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#' && document.querySelector(targetId)) {
+                        e.preventDefault();
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Active link highlighting based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Counter animation for stats section
+        const counterElements = document.querySelectorAll('.counter');
+        
+        function animateCounter(el) {
+            const target = parseInt(el.innerText);
+            let count = 0;
+            const time = 2000; // 2 seconds duration
+            const increment = target / (time / 16); // 60fps
+            
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    clearInterval(timer);
+                    el.innerText = target;
+                } else {
+                    el.innerText = Math.floor(count);
+                }
+            }, 16);
+        }
+        
+        // Trigger counter animation when element is in viewport
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    animateCounter(target);
+                    observer.unobserve(target); // Only animate once
+                }
+            });
+        }, observerOptions);
+        
+        counterElements.forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // Initialize Bootstrap components
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
